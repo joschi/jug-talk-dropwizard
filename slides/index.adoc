@@ -1,0 +1,157 @@
+= Dropwizard
+:backend: revealjs
+:imagesdir: images
+:icons: font
+:customcss: slides.css
+:revealjs_theme: moon
+
+Pragmatische Web Services mit Dropwizard
+
+image::dropwizard-hat.png[Dropwizard Logo]
+
+
+[%notitle]
+== Einführung (0)
+
+image::dropwizard-website.png[Dropwizard Website]
+
+
+[%notitle]
+=== Einführung (1)
+
+[quote]
+____
+Dropwizard is a Java framework for developing ops-friendly, high-performance, RESTful web services.
+____
+
+
+[%notitle]
+=== Einführung (2)
+
+[quote]
+____
+Dropwizard pulls together *stable*, *mature* libraries from the Java ecosystem into a *simple*, *light-weight* package that lets you focus on getting things done.
+____
+
+
+[%notitle]
+=== Einführung (3)
+
+[quote]
+____
+Dropwizard has out-of-the-box support for sophisticated *configuration*, *application metrics*, *logging*, *operational tools*, and much more, allowing you and your team to ship a *production-quality* web service in the shortest time possible.
+____
+
+
+[%notitle]
+=== Dropwizard Metrics
+
+image::metrics-website.png[Dropwizard Metrics Website]
+
+
+== Eine kurze Geschichte des Frameworks
+
+* Entwickelt von https://twitter.com/coda[Coda Hale] bei Yammer
+* Häufig auftretende Muster der Services bei Yammer in ein Framework extrahiert
+* Erstes Release: 2011-12-22 (https://search.maven.org/#artifactdetails%7Ccom.yammer.dropwizard%7Cdropwizard-core%7C0.1.0%7Cjar[Dropwizard 0.1.0])
+* Eigentständiges Projekt seit 2014 (https://search.maven.org/#artifactdetails%7Cio.dropwizard%7Cdropwizard-core%7C0.7.0%7Cjar[Dropwizard 0.7.0])
+
+
+== Warum Dropwizard?
+
+[%step]
+* Dropwizard bringt viele Standardkomponenten mit
+* Bekannte und gut abgehangene Bibliotheken: "Langweilige" Technologien
+* Gute Dokumentation
+* Wiederverwendung von Java EE Wissen
+* Alle Teile so gut wie möglich integriert
+* Operations friendly
+* Kurze https://de.wikipedia.org/wiki/Time-to-Market[Time-to-Market]
+
+
+=== Langweilige Technologien (1)
+
+[%step]
+* Jetty als Web-Server (HTTP, HTTPS, HTTP/2)
+* Jersey (JAX-RS) als Web-Framework
+* Jackson für (De-) Serialisierung
+* Logback und SLF4J für Logging
+* Freemarker oder Mustache für Templates
+* JDBI oder Hibernate für Persistenz
+
+
+=== Langweilige Technologien (2)
+
+* Guava als Ergänzung zur Java Standardbibliothek
+* Hibernate Validator zur Validierung von Daten
+* Liquibase für Datenmigration
+* Guter Support für Tests (vorzugsweise JUnit)
+* …und vieles mehr, siehe http://www.dropwizard.io/1.0.2/docs/manual/[Dropwizard User Manual]
+
+
+== Operations friendly
+
+[%step]
+* Healthchecks
+* Commands (ad-hoc ausführbare Aktionen)
+* Tasks (ad-hoc ausführbare Aktionen via HTTP)
+* Metrics (via http://metrics.dropwizard.io/[Dropwizard Metrics])
+* Gut konfigurierbares Logging (Logback, SLF4J)
+* Einfaches Deployment als JAR-Datei
+
+
+== Erweiterungen
+
+* http://modules.dropwizard.io/
+* 5 offiziell, 69 von der Community (Stand: 2016-10-17)
+
+
+== Die liebe Verwandtschaft
+
+* http://bootique.io/[Bootique]
+* https://projects.spring.io/spring-boot/[Spring Boot]
+
+
+== Demo
+
+https://github.com/joschi/jugm-talk-dropwizard[Demo application on GitHub]
+
+
+== Wer benutzt eigentlich Dropwizard?
+
+* https://eng.uber.com/tech-stack-part-one/[Uber (Gurafu, µETA)] 🚕
+* https://github.com/yammer?query=dropwizard[Yammer] 💬
+* https://github.com/palantir?query=dropwizard[Palantir] 📊
+* http://nerds.airbnb.com/httpjson-services-in-modern-java/[Airbnb] (http://nerds.airbnb.com/airpal/[Airpal]) 🏘
+* http://www.slideshare.net/chbatey/fault-tolerant-microservices-skills-matter[Sky] 📺
+* https://github.com/gini?query=dropwizard[Gini] 💸
+* https://github.com/dropwizard/dropwizard/wiki/Who's-using-Dropwizard[Längere Liste im Dropwizard Wiki]
+
+
+== Kontakt
+
+image::yoshi.png[Yoshi]
+icon:twitter[link="https://twitter.com/joschi83"] –
+icon:github[link="https://github.com/joschi"] –
+icon:linkedin[link="https://www.linkedin.com/in/jschalanda"] –
+icon:xing[link="https://www.xing.com/profile/Jochen_Schalanda"]
+
+
+== Fragen?
+
+image::dropwizard-hamster.jpg[background, size=cover]
+
+
+== Weiterführende Quellen
+
+* http://www.dropwizard.io/[Dropwizard]
+* https://www.codecentric.de/publikation/restful-microservices-mit-dropwizard/[RESTful Microservices mit Dropwizard] (codecentric)
+* https://www.innoq.com/de/articles/2014/08/micro-services-in-java-teil1/[Micro-Services in Java realisieren – Teil 1: Leichtgewichtige Web-Apps mit Dropwizard] (InnoQ)
+* https://www.innoq.com/en/talks/2015/02/microservices-jvm-applications-talk/[Microservices - Are your Frameworks ready?] (InnoQ)
+* http://www.heise.de/developer/artikel/Dropwizard-als-REST-App-Server-2431565.html[Dropwizard als REST-App-Server] (Heise)
+* http://www.bed-con.org/2015/talks/REST-Services-mit-Dropwizard-ruck-zuck-erstellt-dokumentiert-und-getestet[REST-Services mit Dropwizard ruck-zuck erstellt, dokumentiert und getestet] (BED-Con)
+
+
+== Warum eigentlich der komische Name?
+
+image::gunshowcomic_teaser.gif[alt="Gunshow – drop wizard", link="http://gunshowcomic.com/316"]

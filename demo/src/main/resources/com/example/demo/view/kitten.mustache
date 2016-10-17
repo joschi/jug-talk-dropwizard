@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Nice Kittens</title>
+</head>
+<body>
+{{#kitten}}
+    <hgroup>
+        <h1>Sample Kitten #{{id}}</h1>
+        <h2>All about '{{name}}'</h2>
+    </hgroup>
+
+    <section>
+        <header>
+            <img src="{{imagePath}}">
+            <h2>{{name}}</h2>
+        </header>
+    </section>
+{{/kitten}}
+</body>
+</html>
