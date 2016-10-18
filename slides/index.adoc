@@ -54,7 +54,7 @@ image::metrics-website.png[Dropwizard Metrics Website]
 * Entwickelt von https://twitter.com/coda[Coda Hale] bei Yammer
 * Häufig auftretende Muster der Services bei Yammer in ein Framework extrahiert
 * Erstes Release: 2011-12-22 (https://search.maven.org/#artifactdetails%7Ccom.yammer.dropwizard%7Cdropwizard-core%7C0.1.0%7Cjar[Dropwizard 0.1.0])
-* Eigentständiges Projekt seit 2014 (https://search.maven.org/#artifactdetails%7Cio.dropwizard%7Cdropwizard-core%7C0.7.0%7Cjar[Dropwizard 0.7.0])
+* Eigenständiges Projekt seit 2014 (https://search.maven.org/#artifactdetails%7Cio.dropwizard%7Cdropwizard-core%7C0.7.0%7Cjar[Dropwizard 0.7.0])
 
 
 == Warum Dropwizard?
