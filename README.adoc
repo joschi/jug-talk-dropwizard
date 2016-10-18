@@ -1,5 +1,10 @@
 = Talk: Pragmatische Web-Services mit Dropwizard
 
+Slides: https://joschi.github.io/jugm-talk-dropwizard/ (link:slides.pdf[Download PDF])
+
+
+== Build instructions
+
 * Install dependencies:
 
   $ rm -f Gemfile.lock
@@ -14,6 +19,7 @@
   $ make open
 
 * PDF export: https://github.com/hakimel/reveal.js/tree/3.3.0#pdf-export
+  * https://joschi.github.io/jugm-talk-dropwizard/?print-pdf
 
 
 == Feedback
