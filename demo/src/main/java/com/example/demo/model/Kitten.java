@@ -18,14 +18,14 @@ public interface Kitten {
     }
 
     @Min(value = 0, message = "ID must be positive")
-    int id();
+    int getId();
 
     @NotEmpty
-    String name();
+    String getName();
 
     @NotNull
-    KittenType type();
+    KittenType getType();
 
     @Nullable
-    String imagePath();
+    String getImagePath();
 }

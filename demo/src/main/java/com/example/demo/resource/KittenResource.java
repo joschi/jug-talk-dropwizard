@@ -50,10 +50,10 @@ public class KittenResource {
     @ApiOperation("Add cute kitten")
     public Response addKitten(@Valid final Kitten kitten,
                               @Context final UriInfo uriInfo) throws URISyntaxException {
-        if (kitten.imagePath() == null) {
+        if (kitten.getImagePath() == null) {
             final String imgPath = uriInfo.getBaseUriBuilder()
                     .path("images")
-                    .path(kitten.name().toLowerCase(Locale.ENGLISH) + ".jpg")
+                    .path(kitten.getName().toLowerCase(Locale.ENGLISH) + ".jpg")
                     .build()
                     .toString();
             final Kitten kittenWithImagePath = ImmutableKitten.copyOf(kitten)
@@ -64,7 +64,7 @@ public class KittenResource {
             store.put(kitten);
         }
 
-        return Response.created(new URI("/" + kitten.name())).build();
+        return Response.created(new URI("/" + kitten.getName())).build();
     }
 
     @GET

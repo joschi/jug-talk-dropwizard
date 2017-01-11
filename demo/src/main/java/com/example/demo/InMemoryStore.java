@@ -18,7 +18,7 @@ public class InMemoryStore implements Managed {
     }
 
     public void put(final Kitten kitten) {
-        internalStore.put(kitten.name(), kitten);
+        internalStore.put(kitten.getName(), kitten);
     }
 
     @Override
