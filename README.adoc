@@ -1,6 +1,6 @@
 = Talk: Pragmatische Web-Services mit Dropwizard
 
-Slides: https://joschi.github.io/jugm-talk-dropwizard/ (link:slides.pdf[Download PDF])
+Slides: https://joschi.github.io/jug-talk-dropwizard/ (link:slides.pdf[Download PDF])
 
 
 == Build instructions
@@ -19,11 +19,11 @@ Slides: https://joschi.github.io/jugm-talk-dropwizard/ (link:slides.pdf[Download
   $ make open
 
 * PDF export: https://github.com/hakimel/reveal.js/tree/3.3.0#pdf-export
-  * https://joschi.github.io/jugm-talk-dropwizard/?print-pdf
+  * https://joschi.github.io/jug-talk-dropwizard/?print-pdf
 
 
 == Feedback
 
-If you have questions or feedback about the talk (slides or demo project), please https://github.com/joschi/jugm-talk-dropwizard/issues[file an issue in this repository].
+If you have questions or feedback about the talk (slides or demo project), please https://github.com/joschi/jug-talk-dropwizard/issues[file an issue in this repository].
 
 Any feedback is welcome!

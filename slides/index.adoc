@@ -114,7 +114,7 @@ image::metrics-website.png[Dropwizard Metrics Website]
 
 == Demo
 
-https://github.com/joschi/jugm-talk-dropwizard[Demo application on GitHub]
+https://github.com/joschi/jug-talk-dropwizard[Demo application on GitHub]
 
 
 == Wer benutzt eigentlich Dropwizard?
