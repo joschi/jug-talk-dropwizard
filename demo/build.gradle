@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'com.github.johnrengelman.shadow' version '1.2.3'
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
     id "org.inferred.processors" version "1.2.3"
 }
 
@@ -26,7 +26,7 @@ repositories {
 }
 
 ext {
-    dropwizardVersion = '1.0.2'
+    dropwizardVersion = '1.0.5'
 }
 
 dependencies {
@@ -36,10 +36,10 @@ dependencies {
     compile "io.dropwizard:dropwizard-views-mustache:${dropwizardVersion}"
 
     // Community project: https://github.com/smoketurner/dropwizard-swagger
-    compile "com.smoketurner:dropwizard-swagger:1.0.0-1"
+    compile "com.smoketurner:dropwizard-swagger:1.0.5-2"
 
     // Immutables: https://immutables.github.io/
-    processor 'org.immutables:value:2.3.5'
+    processor 'org.immutables:value:2.4.0'
 
     testCompile "io.dropwizard:dropwizard-testing:${dropwizardVersion}"
 }
