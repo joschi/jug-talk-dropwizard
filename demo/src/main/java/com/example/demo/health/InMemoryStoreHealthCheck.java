@@ -20,5 +20,4 @@ public class InMemoryStoreHealthCheck extends HealthCheck {
             return Result.unhealthy("Store is offline.");
         }
     }
-
 }

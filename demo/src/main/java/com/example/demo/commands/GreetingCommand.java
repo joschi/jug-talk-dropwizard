@@ -16,7 +16,10 @@ public class GreetingCommand extends ConfiguredCommand<DemoConfiguration> {
     protected void run(Bootstrap<DemoConfiguration> bootstrap,
                        Namespace namespace,
                        DemoConfiguration configuration) throws Exception {
-        System.out.format(Locale.ENGLISH, "Hi! This demo is presented by %s in %d.\n",
-                configuration.getSpeakerName(), configuration.getYear());
+        System.out.format(
+                Locale.ENGLISH,
+                "Hi! This demo is presented by %s in %d.\n",
+                configuration.getSpeakerName(),
+                configuration.getYear());
     }
 }

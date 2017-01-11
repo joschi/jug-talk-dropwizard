@@ -68,7 +68,15 @@
 * Show metrics: http://127.0.0.1:8080/admin/metrics?pretty=true
 * Show thread status: http://127.0.0.1:8080/admin/threads
 * Show health checks: http://127.0.0.1:8080/admin/healthcheck?pretty=true
-* Toggle status of DemoHealthCheck:
+* Show echo task without parameters:
+
+  curl -X POST 'http://127.0.0.1:8080/admin/tasks/echo'
+
+* Show echo task with multiple parameters:
+
+  curl -X POST 'http://127.0.0.1:8080/admin/tasks/echo?param=value1&param=value2'
+
+* Toggle status of ``DemoHealthCheck``:
 
   curl -X POST http://127.0.0.1:8080/admin/tasks/toggle-health
 

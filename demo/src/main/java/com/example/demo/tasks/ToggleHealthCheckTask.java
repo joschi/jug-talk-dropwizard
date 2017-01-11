@@ -17,7 +17,8 @@ public class ToggleHealthCheckTask extends Task {
     }
 
     @Override
-    public void execute(ImmutableMultimap<String, String> parameters, PrintWriter output) throws Exception {
+    public void execute(ImmutableMultimap<String, String> parameters,
+                        PrintWriter output) throws Exception {
         healthCheck.toggleHealth();
         output.println("Health state toggled.");
     }

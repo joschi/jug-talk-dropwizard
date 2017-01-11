@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class InMemoryStore implements Managed {
-    final ConcurrentMap<String, Kitten> internalStore = new ConcurrentHashMap<>();
+    private final ConcurrentMap<String, Kitten> internalStore = new ConcurrentHashMap<>();
     private AtomicBoolean running = new AtomicBoolean(false);
 
     public Optional<Kitten> get(final String name) {

@@ -7,6 +7,7 @@ import com.example.demo.model.ImmutableKitten;
 import com.example.demo.model.Kitten;
 import com.example.demo.resource.KittenResource;
 import com.example.demo.resource.PingResource;
+import com.example.demo.tasks.EchoTask;
 import com.example.demo.tasks.ToggleHealthCheckTask;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
@@ -46,16 +47,17 @@ public class DemoApplication extends Application<DemoConfiguration> {
         environment.healthChecks().register("demo-health", demoHealthCheck);
         environment.healthChecks().register("store-health", new InMemoryStoreHealthCheck(store));
 
+        environment.admin().addTask(new EchoTask());
         environment.admin().addTask(new ToggleHealthCheckTask("toggle-health", demoHealthCheck));
 
         // add one demo kitten
-        final Kitten foo = ImmutableKitten.builder()
+        final Kitten demoKitten = ImmutableKitten.builder()
                 .id(0)
                 .name("Findus")
                 .type(Kitten.KittenType.CUTE)
                 .imagePath("../../images/findus.jpg")
                 .build();
-        store.put(foo);
+        store.put(demoKitten);
     }
 
 }

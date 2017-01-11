@@ -1,6 +1,6 @@
 package com.example.demo.resource;
 
-import com.codahale.metrics.annotation.Counted;
+import com.codahale.metrics.annotation.Metered;
 import com.example.demo.model.ImmutablePong;
 import com.example.demo.model.Pong;
 import io.swagger.annotations.Api;
@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
 @Api("Ping Pong")
 public class PingResource {
     @GET
-    @Counted
+    @Metered
     @ApiOperation("Ping")
     public Pong pingPong(@QueryParam("message")
                          @ApiParam("Pong message")
