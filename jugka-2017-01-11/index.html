@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Dropwizard</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #408080; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+.listingblock .pygments .tok-k { color: #008000; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-o { color: #666666 } /* Operator */
+.listingblock .pygments .tok-ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.listingblock .pygments .tok-cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #BC7A00 } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.listingblock .pygments .tok-c1 { color: #408080; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #408080; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #FF0000 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #888888 } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #008000 } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #B00040 } /* Keyword.Type */
+.listingblock .pygments .tok-m { color: #666666 } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #BA2121 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #7D9029 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #008000 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.listingblock .pygments .tok-no { color: #880000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #AA22FF } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #999999; font-weight: bold } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #0000FF } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #A0A000 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.listingblock .pygments .tok-nt { color: #008000; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #19177C } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #666666 } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #666666 } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #666666 } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #666666 } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #666666 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #BA2121 } /* Literal.String.Affix */
+.listingblock .pygments .tok-sb { color: #BA2121 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #BA2121 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #BA2121 } /* Literal.String.Delimiter */
+.listingblock .pygments .tok-sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #BA2121 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #BA2121 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #008000 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #BB6688 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #BA2121 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #19177C } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #008000 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #0000FF } /* Name.Function.Magic */
+.listingblock .pygments .tok-vc { color: #19177C } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #19177C } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #19177C } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #19177C } /* Name.Variable.Magic */
+.listingblock .pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */</style><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><link rel="stylesheet" href="slides.css"></head><body><div class="reveal"><div class="slides"><section class="title"><h1>Dropwizard</h1><div class="preamble"><div class="paragraph"><p>Pragmatische Web Services mit Dropwizard</p></div>
+<div class="imageblock" style=""><img src="images/dropwizard-hat.png" alt="Dropwizard Logo"></div></div></section>
+<section><section id="_einfhrung_0"><div class="imageblock" style=""><img src="images/dropwizard-website.png" alt="Dropwizard Website"></div></section><section id="_einfhrung_1"><div class="quoteblock"><blockquote><div class="paragraph"><p>Dropwizard is a Java framework for developing ops-friendly, high-performance, RESTful web services.</p></div></blockquote></div></section><section id="_einfhrung_2"><div class="quoteblock"><blockquote><div class="paragraph"><p>Dropwizard pulls together <strong>stable</strong>, <strong>mature</strong> libraries from the Java ecosystem into a <strong>simple</strong>, <strong>light-weight</strong> package that lets you focus on getting things done.</p></div></blockquote></div></section><section id="_einfhrung_3"><div class="quoteblock"><blockquote><div class="paragraph"><p>Dropwizard has out-of-the-box support for sophisticated <strong>configuration</strong>, <strong>application metrics</strong>, <strong>logging</strong>, <strong>operational tools</strong>, and much more, allowing you and your team to ship a <strong>production-quality</strong> web service in the shortest time possible.</p></div></blockquote></div></section><section id="_dropwizard_metrics"><div class="imageblock" style=""><img src="images/metrics-website.png" alt="Dropwizard Metrics Website"></div></section></section>
+<section id="_eine_kurze_geschichte_des_frameworks"><h2>Eine kurze Geschichte des Frameworks</h2><div class="ulist"><ul><li><p>Entwickelt von <a href="https://twitter.com/coda">Coda Hale</a> bei Yammer</p></li><li><p>Häufig auftretende Muster der Backend-Anwendungen bei Yammer in ein Framework extrahiert</p></li><li><p>Erstes Release: 2011-12-22 (<a href="https://search.maven.org/#artifactdetails%7Ccom.yammer.dropwizard%7Cdropwizard-core%7C0.1.0%7Cjar">Dropwizard 0.1.0</a>)</p></li><li><p>Eigenständiges Projekt seit 2014 (<a href="https://search.maven.org/#artifactdetails%7Cio.dropwizard%7Cdropwizard-core%7C0.7.0%7Cjar">Dropwizard 0.7.0</a>)</p></li><li><p>Aktuelles Release: <a href="https://search.maven.org/#artifactdetails%7Cio.dropwizard%7Cdropwizard-core%7C1.0.5%7Cjar">Dropwizard 1.0.5</a> (Stand: 2017-01-11)</p></li></ul></div></section>
+<section><section id="_warum_dropwizard"><h2>Warum Dropwizard?</h2><div class="ulist"><ul><li class="fragment"><p>Dropwizard bringt viele Standardkomponenten mit</p><div class="ulist"><ul><li><p>Bekannte und bewährte Bibliotheken</p></li><li><p>Alle Teile bestens integriert</p></li></ul></div></li><li class="fragment"><p>Gute Dokumentation</p></li><li class="fragment"><p>Wiederverwendung von Java EE Wissen</p></li><li class="fragment"><p>Operations friendly</p></li><li class="fragment"><p>Kurze <a href="https://de.wikipedia.org/wiki/Time-to-Market">Time-to-Market</a></p></li></ul></div></section><section id="_langweilige_technologien_1"><h2>Langweilige Technologien (1)</h2><div class="ulist"><ul><li><p>Jetty als Web-Server (HTTP, HTTPS, HTTP/2)</p></li><li><p>Jersey (JAX-RS) als Web-Framework</p></li><li><p>Jackson für (De-) Serialisierung</p></li><li><p>Logback und SLF4J für Logging</p></li><li><p>Freemarker oder Mustache für Templates</p></li><li><p>JDBI oder Hibernate für Persistenz</p></li></ul></div></section><section id="_langweilige_technologien_2"><h2>Langweilige Technologien (2)</h2><div class="ulist"><ul><li><p>Guava als Ergänzung zur Java Standardbibliothek</p></li><li><p>Hibernate Validator zur Validierung von Daten</p></li><li><p>Liquibase für Datenmigration</p></li><li><p>Guter Support für Tests (vorzugsweise JUnit)</p></li><li><p>…und vieles mehr, siehe <a href="http://www.dropwizard.io/1.0.5/docs/manual/">Dropwizard User Manual</a></p></li></ul></div></section></section>
+<section><section id="_dropwizard_application_1"><h2>Dropwizard Application (1)</h2><div class="ulist"><ul><li><p>Normale Java-Klasse mit <code>main</code> Methode</p></li><li><p>Keine Code-Generierung</p></li><li><p>Keine (bzw. wenig) "Annotations Magic"</p></li></ul></div></section><section id="_dropwizard_application_2"><h2>Dropwizard Application (2)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">DemoApplication</span> <span class="tok-kd">extends</span> <span class="tok-n">Application</span><span class="tok-o">&lt;</span><span class="tok-n">DemoConfiguration</span><span class="tok-o">&gt;</span> <span class="tok-o">{</span>
+    <span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kt">void</span> <span class="tok-nf">main</span><span class="tok-o">(</span><span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">args</span><span class="tok-o">)</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+        <span class="tok-k">new</span> <span class="tok-n">DemoApplication</span><span class="tok-o">().</span><span class="tok-na">run</span><span class="tok-o">(</span><span class="tok-n">args</span><span class="tok-o">);</span>
+    <span class="tok-o">}</span>
+
+    <span class="tok-nd">@Override</span>
+    <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">initialize</span><span class="tok-o">(</span><span class="tok-n">Bootstrap</span><span class="tok-o">&lt;</span><span class="tok-n">DemoConfiguration</span><span class="tok-o">&gt;</span> <span class="tok-n">bootstrap</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-o">}</span>
+
+    <span class="tok-nd">@Override</span>
+    <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">run</span><span class="tok-o">(</span><span class="tok-n">DemoConfiguration</span> <span class="tok-n">configuration</span><span class="tok-o">,</span>
+                    <span class="tok-n">Environment</span> <span class="tok-n">environment</span><span class="tok-o">)</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="_dropwizard_application_3"><h2>Dropwizard Application (3)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">initialize</span><span class="tok-o">(</span><span class="tok-n">Bootstrap</span><span class="tok-o">&lt;</span><span class="tok-n">DemoConfiguration</span><span class="tok-o">&gt;</span> <span class="tok-n">bootstrap</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">bootstrap</span><span class="tok-o">.</span><span class="tok-na">addBundle</span><span class="tok-o">(...);</span>
+    <span class="tok-n">bootstrap</span><span class="tok-o">.</span><span class="tok-na">addCommand</span><span class="tok-o">(...);</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="_dropwizard_application_4"><h2>Dropwizard Application (4)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">run</span><span class="tok-o">(</span><span class="tok-n">DemoConfiguration</span> <span class="tok-n">configuration</span><span class="tok-o">,</span>
+                <span class="tok-n">Environment</span> <span class="tok-n">environment</span><span class="tok-o">)</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">environment</span><span class="tok-o">.</span><span class="tok-na">jersey</span><span class="tok-o">().</span><span class="tok-na">register</span><span class="tok-o">(</span><span class="tok-n">EchoResource</span><span class="tok-o">.</span><span class="tok-na">class</span><span class="tok-o">);</span>
+    <span class="tok-n">environment</span><span class="tok-o">.</span><span class="tok-na">lifecycle</span><span class="tok-o">().</span><span class="tok-na">manage</span><span class="tok-o">(...);</span>
+    <span class="tok-n">environment</span><span class="tok-o">.</span><span class="tok-na">healthChecks</span><span class="tok-o">().</span><span class="tok-na">register</span><span class="tok-o">(</span><span class="tok-s">&quot;demo-health&quot;</span><span class="tok-o">,</span> <span class="tok-o">...);</span>
+    <span class="tok-n">environment</span><span class="tok-o">.</span><span class="tok-na">admin</span><span class="tok-o">().</span><span class="tok-na">addTask</span><span class="tok-o">(...);</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="_dropwizard_application_5"><h2>Dropwizard Application (5)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">DemoConfiguration</span> <span class="tok-kd">extends</span> <span class="tok-n">Configuration</span> <span class="tok-o">{</span>
+    <span class="tok-nd">@NotBlank</span>
+    <span class="tok-kd">private</span> <span class="tok-n">String</span> <span class="tok-n">customSetting</span><span class="tok-o">;</span>
+
+    <span class="tok-kd">public</span> <span class="tok-n">String</span> <span class="tok-nf">getCustomSetting</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+        <span class="tok-k">return</span> <span class="tok-n">customSetting</span><span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="_dropwizard_application_6"><h2>Dropwizard Application (6)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-nd">@Path</span><span class="tok-o">(</span><span class="tok-s">&quot;/echo&quot;</span><span class="tok-o">)</span>
+<span class="tok-nd">@Produces</span><span class="tok-o">(</span><span class="tok-n">MediaType</span><span class="tok-o">.</span><span class="tok-na">TEXT_PLAIN</span><span class="tok-o">)</span>
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">EchoResource</span> <span class="tok-o">{</span>
+    <span class="tok-nd">@GET</span>
+    <span class="tok-nd">@Timed</span>
+    <span class="tok-kd">public</span> <span class="tok-n">String</span> <span class="tok-nf">echo</span><span class="tok-o">(</span><span class="tok-nd">@QueryParam</span><span class="tok-o">(</span><span class="tok-s">&quot;message&quot;</span><span class="tok-o">)</span>
+                       <span class="tok-nd">@NotBlank</span>
+                       <span class="tok-n">String</span> <span class="tok-n">message</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+        <span class="tok-k">return</span> <span class="tok-n">message</span><span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre></div></div></section></section>
+<section><section id="_tests"><h2>Tests</h2><div class="ulist"><ul><li><p>JUnit rules für</p><div class="ulist"><ul><li><p>(JAX-RS) Resource Tests</p></li><li><p>Integration Tests</p></li><li><p>(Jersey) Client Tests</p></li></ul></div></li></ul></div></section><section id="_tests_resource_tests"><h2>Tests - Resource Tests</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-nd">@ClassRule</span>
+<span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kd">final</span> <span class="tok-n">ResourceTestRule</span> <span class="tok-n">resources</span> <span class="tok-o">=</span>
+        <span class="tok-n">ResourceTestRule</span><span class="tok-o">.</span><span class="tok-na">builder</span><span class="tok-o">()</span>
+                <span class="tok-o">.</span><span class="tok-na">addResource</span><span class="tok-o">(</span><span class="tok-k">new</span> <span class="tok-n">PingResource</span><span class="tok-o">())</span>
+                <span class="tok-o">.</span><span class="tok-na">build</span><span class="tok-o">();</span>
+
+<span class="tok-nd">@Test</span>
+<span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">testPingPong</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-kd">final</span> <span class="tok-n">Pong</span> <span class="tok-n">expectedPong</span> <span class="tok-o">=</span> <span class="tok-n">ImmutablePong</span><span class="tok-o">.</span><span class="tok-na">builder</span><span class="tok-o">()</span>
+            <span class="tok-o">.</span><span class="tok-na">message</span><span class="tok-o">(</span><span class="tok-s">&quot;pong&quot;</span><span class="tok-o">)</span>
+            <span class="tok-o">.</span><span class="tok-na">build</span><span class="tok-o">();</span>
+    <span class="tok-kd">final</span> <span class="tok-n">Pong</span> <span class="tok-n">actualPong</span> <span class="tok-o">=</span> <span class="tok-n">resources</span><span class="tok-o">.</span><span class="tok-na">client</span><span class="tok-o">().</span><span class="tok-na">target</span><span class="tok-o">(</span><span class="tok-s">&quot;/ping&quot;</span><span class="tok-o">)</span>
+            <span class="tok-o">.</span><span class="tok-na">request</span><span class="tok-o">()</span>
+            <span class="tok-o">.</span><span class="tok-na">get</span><span class="tok-o">(</span><span class="tok-n">Pong</span><span class="tok-o">.</span><span class="tok-na">class</span><span class="tok-o">);</span>
+
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-n">expectedPong</span><span class="tok-o">,</span> <span class="tok-n">actualPong</span><span class="tok-o">);</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="_tests_integration_tests"><h2>Tests - Integration Tests</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-nd">@ClassRule</span>
+<span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kd">final</span> <span class="tok-n">DropwizardAppRule</span><span class="tok-o">&lt;</span><span class="tok-n">DemoConfiguration</span><span class="tok-o">&gt;</span> <span class="tok-n">RULE</span> <span class="tok-o">=</span>
+        <span class="tok-k">new</span> <span class="tok-n">DropwizardAppRule</span><span class="tok-o">&lt;&gt;(</span>
+                <span class="tok-n">DemoApplication</span><span class="tok-o">.</span><span class="tok-na">class</span><span class="tok-o">,</span>
+                <span class="tok-n">ResourceHelpers</span><span class="tok-o">.</span><span class="tok-na">resourceFilePath</span><span class="tok-o">(</span><span class="tok-s">&quot;demo_test.yml&quot;</span><span class="tok-o">));</span>
+
+<span class="tok-nd">@Test</span>
+<span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">testListKittens</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">IOException</span> <span class="tok-o">{</span>
+    <span class="tok-kd">final</span> <span class="tok-n">Client</span> <span class="tok-n">client</span> <span class="tok-o">=</span> <span class="tok-n">ClientBuilder</span><span class="tok-o">.</span><span class="tok-na">newClient</span><span class="tok-o">();</span>
+    <span class="tok-kd">final</span> <span class="tok-n">Collection</span><span class="tok-o">&lt;</span><span class="tok-n">Kitten</span><span class="tok-o">&gt;</span> <span class="tok-n">kittens</span> <span class="tok-o">=</span> <span class="tok-n">client</span>
+            <span class="tok-o">.</span><span class="tok-na">target</span><span class="tok-o">(</span><span class="tok-n">String</span><span class="tok-o">.</span><span class="tok-na">format</span><span class="tok-o">(</span><span class="tok-s">&quot;http://localhost:%d/kittens/&quot;</span><span class="tok-o">,</span> <span class="tok-n">RULE</span><span class="tok-o">.</span><span class="tok-na">getLocalPort</span><span class="tok-o">()))</span>
+            <span class="tok-o">.</span><span class="tok-na">request</span><span class="tok-o">(</span><span class="tok-n">MediaType</span><span class="tok-o">.</span><span class="tok-na">APPLICATION_JSON</span><span class="tok-o">)</span>
+            <span class="tok-o">.</span><span class="tok-na">get</span><span class="tok-o">(</span><span class="tok-k">new</span> <span class="tok-n">GenericType</span><span class="tok-o">&lt;</span><span class="tok-n">Collection</span><span class="tok-o">&lt;</span><span class="tok-n">Kitten</span><span class="tok-o">&gt;&gt;()</span> <span class="tok-o">{});</span>
+
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">,</span> <span class="tok-n">kittens</span><span class="tok-o">.</span><span class="tok-na">size</span><span class="tok-o">());</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Findus&quot;</span><span class="tok-o">,</span> <span class="tok-n">Iterables</span><span class="tok-o">.</span><span class="tok-na">getOnlyElement</span><span class="tok-o">(</span><span class="tok-n">kittens</span><span class="tok-o">).</span><span class="tok-na">getName</span><span class="tok-o">());</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="_tests_happy_builds"><h2>Tests - Happy Builds</h2><div class="imageblock" style=""><img src="images/gradle-tests.png" alt="Green tests"></div></section></section>
+<section><section id="_operations_friendly"><h2>Operations friendly</h2><div class="ulist"><ul><li><p>Healthchecks</p></li><li><p>Tasks (ad-hoc ausführbare Aktionen via HTTP)</p></li><li><p>Commands (ad-hoc ausführbare Aktionen via CLI)</p></li><li><p>Metrics (via <a href="http://metrics.dropwizard.io/">Dropwizard Metrics</a>)</p></li><li><p>Gut konfigurierbares Logging (Logback, SLF4J)</p></li><li><p>Einfaches Deployment als JAR-Datei</p></li></ul></div></section><section id="_operations_friendly_healthchecks_1"><h2>Operations friendly - Healthchecks (1)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-kd">protected</span> <span class="tok-n">Result</span> <span class="tok-nf">check</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">store</span><span class="tok-o">.</span><span class="tok-na">isRunning</span><span class="tok-o">())</span> <span class="tok-o">{</span>
+        <span class="tok-k">return</span> <span class="tok-n">Result</span><span class="tok-o">.</span><span class="tok-na">healthy</span><span class="tok-o">(</span><span class="tok-s">&quot;Store is OK.&quot;</span><span class="tok-o">);</span>
+    <span class="tok-o">}</span> <span class="tok-k">else</span> <span class="tok-o">{</span>
+        <span class="tok-k">return</span> <span class="tok-n">Result</span><span class="tok-o">.</span><span class="tok-na">unhealthy</span><span class="tok-o">(</span><span class="tok-s">&quot;Store is offline.&quot;</span><span class="tok-o">);</span>
+    <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="_operations_friendly_healthcheck_2"><h2>Operations friendly - Healthcheck (2)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="json language-json"><span class="tok-p">{</span>
+  <span class="tok-nt">&quot;deadlocks&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
+    <span class="tok-nt">&quot;healthy&quot;</span> <span class="tok-p">:</span> <span class="tok-kc">true</span>
+  <span class="tok-p">},</span>
+  <span class="tok-nt">&quot;demo-health&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
+    <span class="tok-nt">&quot;healthy&quot;</span> <span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;message&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;Everything is fine. :)&quot;</span>
+  <span class="tok-p">},</span>
+  <span class="tok-nt">&quot;store-health&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
+    <span class="tok-nt">&quot;healthy&quot;</span> <span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;message&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;Store is OK.&quot;</span>
+  <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre></div></div></section><section id="_operations_friendly_tasks_1"><h2>Operations friendly - Tasks (1)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">execute</span><span class="tok-o">(</span><span class="tok-n">ImmutableMultimap</span><span class="tok-o">&lt;</span><span class="tok-n">String</span><span class="tok-o">,</span> <span class="tok-n">String</span><span class="tok-o">&gt;</span> <span class="tok-n">parameters</span><span class="tok-o">,</span>
+                    <span class="tok-n">PrintWriter</span> <span class="tok-n">output</span><span class="tok-o">)</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">output</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-n">parameters</span><span class="tok-o">);</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="_operations_friendly_tasks_2"><h2>Operations friendly - Tasks (2)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code>$ curl -X POST \
+  'http://localhost:8080/admin/tasks/echo?param=value1&amp;param=value2'
+{param=[value1, value2]}</code></pre></div></div></section><section id="_operations_friendly_commands_1"><h2>Operations friendly - Commands (1)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="java language-java"><span class="tok-kd">protected</span> <span class="tok-kt">void</span> <span class="tok-nf">run</span><span class="tok-o">(</span><span class="tok-n">Bootstrap</span><span class="tok-o">&lt;</span><span class="tok-n">DemoConfiguration</span><span class="tok-o">&gt;</span> <span class="tok-n">bootstrap</span><span class="tok-o">,</span>
+                   <span class="tok-n">Namespace</span> <span class="tok-n">namespace</span><span class="tok-o">,</span>
+                   <span class="tok-n">DemoConfiguration</span> <span class="tok-n">configuration</span><span class="tok-o">)</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">format</span><span class="tok-o">(</span>
+            <span class="tok-n">Locale</span><span class="tok-o">.</span><span class="tok-na">ENGLISH</span><span class="tok-o">,</span>
+            <span class="tok-s">&quot;Hi! This demo is presented by %s in %d.\n&quot;</span><span class="tok-o">,</span>
+            <span class="tok-n">configuration</span><span class="tok-o">.</span><span class="tok-na">getSpeakerName</span><span class="tok-o">(),</span>
+            <span class="tok-n">configuration</span><span class="tok-o">.</span><span class="tok-na">getYear</span><span class="tok-o">());</span>
+<span class="tok-o">}</span></code></pre></div></div></section><section id="_operations_friendly_commands_2"><h2>Operations friendly - Commands (2)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code>$ java -jar build/libs/demo-1.0.0-SNAPSHOT-all.jar greet config.yml
+Hi! This demo is presented by Jochen Schalanda in 2017.</code></pre></div></div></section><section id="_operations_friendly_commands_3"><h2>Operations friendly - Commands (3)</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code>$ java -jar build/libs/demo-1.0.0-SNAPSHOT-all.jar check config.yml
+INFO  [2017-01-11 15:02:26,269] io.dropwizard.cli.CheckCommand:
+Configuration is OK
+
+$ java -jar build/libs/demo-1.0.0-SNAPSHOT-all.jar check config.yml
+config.yml has an error:
+  * Unrecognized field at: spiekerName
+    Did you mean?:
+      - speakerName</code></pre></div></div></section><section id="_operations_friendly_metrics"><h2>Operations friendly - Metrics</h2><div class="listingblock"><div class="content"><pre class="pygments highlight"><code class="json language-json"><span class="tok-p">{</span>
+  <span class="tok-nt">&quot;com.example.demo.resource.PingResource.pingPong&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
+    <span class="tok-nt">&quot;count&quot;</span> <span class="tok-p">:</span> <span class="tok-mi">6</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;m15_rate&quot;</span> <span class="tok-p">:</span> <span class="tok-mf">1.0</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;m1_rate&quot;</span> <span class="tok-p">:</span> <span class="tok-mf">1.0</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;m5_rate&quot;</span> <span class="tok-p">:</span> <span class="tok-mf">1.0</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;mean_rate&quot;</span> <span class="tok-p">:</span> <span class="tok-mf">0.7386288754923656</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;units&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;events/second&quot;</span>
+  <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre></div></div>
+<div class="paragraph"><p>Metrics Reporter für Graphite, InfluxDB, Prometheus uvm.</p></div></section></section>
+<section id="_demo"><h2>Demo</h2><div class="paragraph"><p><a href="https://github.com/joschi/jug-talk-dropwizard/tree/jugka-2017-01-11">Demo application on GitHub</a></p></div>
+<div class="ulist"><ul><li class="fragment"><p>Microservice</p></li><li class="fragment"><p>NoSQL</p></li><li class="fragment"><p>DevOps-friendly</p></li><li class="fragment"><p><strong>BINGO!</strong> 🎉</p></li></ul></div></section>
+<section id="_erweiterungen"><h2>Erweiterungen</h2><div class="ulist"><ul><li><p><a href="http://modules.dropwizard.io/" class="bare">http://modules.dropwizard.io/</a></p></li><li><p>5 offiziell, 74 von der Community (Stand: 2017-01-11)</p></li></ul></div></section>
+<section id="_wer_benutzt_eigentlich_dropwizard"><h2>Wer benutzt eigentlich Dropwizard?</h2><div class="ulist"><ul><li><p><a href="https://eng.uber.com/tech-stack-part-one/">Uber (Gurafu, µETA)</a> 🚕</p></li><li><p><a href="https://github.com/yammer?query=dropwizard">Yammer</a> 💬</p></li><li><p><a href="https://github.com/palantir?query=dropwizard">Palantir</a> 📊</p></li><li><p><a href="http://nerds.airbnb.com/httpjson-services-in-modern-java/">Airbnb</a> (<a href="http://nerds.airbnb.com/airpal/">Airpal</a>) 🏘</p></li><li><p><a href="http://www.slideshare.net/chbatey/fault-tolerant-microservices-skills-matter">Sky</a> 📺</p></li><li><p><a href="https://github.com/gini?query=dropwizard">Gini</a> (Fotoüberweisung) 💸</p></li><li><p><a href="https://github.com/dropwizard/dropwizard/wiki/Who&#8217;s-using-Dropwizard">Längere Liste im Dropwizard Wiki</a></p></li></ul></div></section>
+<section id="_die_liebe_verwandtschaft"><h2>Die liebe Verwandtschaft</h2><div class="ulist"><ul><li><p><a href="http://bootique.io/">Bootique</a></p></li><li><p><a href="https://projects.spring.io/spring-boot/">Spring Boot</a></p></li></ul></div></section>
+<section id="_kontakt"><h2>Kontakt</h2><div class="imageblock" style=""><img src="images/yoshi.png" alt="Yoshi"></div>
+<div class="paragraph"><p><span class="icon"><a class="image" href="https://twitter.com/joschi83"><i class="fa fa-twitter"></i></a></span> –
+<span class="icon"><a class="image" href="https://github.com/joschi"><i class="fa fa-github"></i></a></span> –
+<span class="icon"><a class="image" href="https://www.linkedin.com/in/jschalanda"><i class="fa fa-linkedin"></i></a></span> –
+<span class="icon"><a class="image" href="https://www.xing.com/profile/Jochen_Schalanda"><i class="fa fa-xing"></i></a></span></p></div></section>
+<section id="_fragen" data-background-image="images/dropwizard-hamster.jpg" data-background-size="cover"><h2>Fragen?</h2></section>
+<section id="_weiterfhrende_quellen"><h2>Weiterführende Quellen</h2><div class="ulist"><ul><li><p><a href="http://www.dropwizard.io/">Dropwizard</a></p></li><li><p><a href="https://www.codecentric.de/publikation/restful-microservices-mit-dropwizard/">RESTful Microservices mit Dropwizard</a> (codecentric)</p></li><li><p><a href="https://www.innoq.com/de/articles/2014/08/micro-services-in-java-teil1/">Micro-Services in Java realisieren – Teil 1: Leichtgewichtige Web-Apps mit Dropwizard</a> (InnoQ)</p></li><li><p><a href="https://www.innoq.com/en/talks/2015/02/microservices-jvm-applications-talk/">Microservices - Are your Frameworks ready?</a> (InnoQ)</p></li><li><p><a href="http://www.heise.de/developer/artikel/Dropwizard-als-REST-App-Server-2431565.html">Dropwizard als REST-App-Server</a> (Heise)</p></li><li><p><a href="http://www.bed-con.org/2015/talks/REST-Services-mit-Dropwizard-ruck-zuck-erstellt-dokumentiert-und-getestet">REST-Services mit Dropwizard ruck-zuck erstellt, dokumentiert und getestet</a> (BED-Con)</p></li></ul></div></section>
+<section id="_warum_eigentlich_der_komische_name"><h2>Warum eigentlich der komische Name?</h2><div class="imageblock" style=""><a class="image" href="http://gunshowcomic.com/316"><img src="images/gunshowcomic_teaser.gif" alt="Gunshow – drop wizard"></a></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'moon',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
