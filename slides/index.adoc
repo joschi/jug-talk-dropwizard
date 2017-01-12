@@ -318,7 +318,7 @@ Metrics Reporter für Graphite, InfluxDB, Prometheus uvm.
 
 == Demo
 
-https://github.com/joschi/jug-talk-dropwizard[Demo application on GitHub]
+https://github.com/joschi/jug-talk-dropwizard/tree/jugka-2017-01-11[Demo application on GitHub]
 
 [%step]
 * Microservice
@@ -330,7 +330,7 @@ https://github.com/joschi/jug-talk-dropwizard[Demo application on GitHub]
 == Erweiterungen
 
 * http://modules.dropwizard.io/
-* 5 offiziell, 69 von der Community (Stand: 2016-10-17)
+* 5 offiziell, 74 von der Community (Stand: 2017-01-11)
 
 
 == Wer benutzt eigentlich Dropwizard?
