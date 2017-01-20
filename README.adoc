@@ -1,6 +1,7 @@
 = Talk: Pragmatische Web-Services mit Dropwizard
 
-Slides: https://joschi.github.io/jug-talk-dropwizard/jugka-2017-01-11/ (link:slides.pdf[Download PDF])
+* Slides: https://joschi.github.io/jug-talk-dropwizard/jugka-2017-01-11/ (link:slides.pdf[Download PDF])
+* Video: https://www.youtube.com/watch?v=aTeXiBh69f4
 
 
 == Build instructions
