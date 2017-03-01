@@ -336,11 +336,11 @@ https://github.com/joschi/jug-talk-dropwizard/tree/jugka-2017-01-11[Demo applica
 == Wer benutzt eigentlich Dropwizard?
 
 * https://eng.uber.com/tech-stack-part-one/[Uber (Gurafu, µETA)] 🚕
-* https://github.com/yammer?query=dropwizard[Yammer] 💬
-* https://github.com/palantir?query=dropwizard[Palantir] 📊
+* https://github.com/yammer?q=dropwizard[Yammer] 💬
+* https://github.com/Financial-Times?q=dropwizard[Financial Times] 🗞
 * http://nerds.airbnb.com/httpjson-services-in-modern-java/[Airbnb] (http://nerds.airbnb.com/airpal/[Airpal]) 🏘
 * http://www.slideshare.net/chbatey/fault-tolerant-microservices-skills-matter[Sky] 📺
-* https://github.com/gini?query=dropwizard[Gini] (Fotoüberweisung) 💸
+* https://github.com/gini?q=dropwizard[Gini] (Fotoüberweisung) 💸
 * https://github.com/dropwizard/dropwizard/wiki/Who's-using-Dropwizard[Längere Liste im Dropwizard Wiki]
 
 
