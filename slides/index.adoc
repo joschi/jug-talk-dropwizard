@@ -58,7 +58,7 @@ image::metrics-website.png[Dropwizard Metrics Website]
 * Häufig auftretende Muster der Backend-Anwendungen bei Yammer in ein Framework extrahiert
 * Erstes Release: 2011-12-22 (https://search.maven.org/#artifactdetails%7Ccom.yammer.dropwizard%7Cdropwizard-core%7C0.1.0%7Cjar[Dropwizard 0.1.0])
 * Eigenständiges Projekt seit 2014 (https://search.maven.org/#artifactdetails%7Cio.dropwizard%7Cdropwizard-core%7C0.7.0%7Cjar[Dropwizard 0.7.0])
-* Aktuelles Release: https://search.maven.org/#artifactdetails%7Cio.dropwizard%7Cdropwizard-core%7C1.0.5%7Cjar[Dropwizard 1.0.5] (Stand: 2017-01-11)
+* Aktuelles Release: https://search.maven.org/#artifactdetails%7Cio.dropwizard%7Cdropwizard-core%7C1.1.0-rc4%7Cjar[Dropwizard 1.1.0-rc4] (Stand: 2017-03-15)
 
 
 == Warum Dropwizard?
@@ -318,7 +318,7 @@ Metrics Reporter für Graphite, InfluxDB, Prometheus uvm.
 
 == Demo
 
-https://github.com/joschi/jug-talk-dropwizard/tree/jugka-2017-01-11[Demo application on GitHub]
+https://github.com/joschi/jug-talk-dropwizard/tree/jugmenue-2017-03-16[Demo application on GitHub]
 
 [%step]
 * Microservice
@@ -330,7 +330,7 @@ https://github.com/joschi/jug-talk-dropwizard/tree/jugka-2017-01-11[Demo applica
 == Erweiterungen
 
 * http://modules.dropwizard.io/
-* 5 offiziell, 74 von der Community (Stand: 2017-01-11)
+* 5 offiziell, 75 von der Community (Stand: 2017-03-15)
 
 
 == Wer benutzt eigentlich Dropwizard?
