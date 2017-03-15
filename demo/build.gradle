@@ -3,6 +3,7 @@ plugins {
     id 'application'
     id 'com.github.johnrengelman.shadow' version '1.2.4'
     id "net.ltgt.apt" version "0.9"
+    id "nebula.dependency-recommender" version "4.1.0"
 }
 
 version = '1.0.0-SNAPSHOT'
@@ -26,15 +27,19 @@ repositories {
 }
 
 ext {
-    dropwizardVersion = '1.1.0-rc3'
+    dropwizardVersion = '1.1.0-rc4'
     immutablesVersion = '2.4.4'
 }
 
+dependencyRecommendations {
+   mavenBom module: "io.dropwizard:dropwizard-bom:${dropwizardVersion}"
+}
+
 dependencies {
-    compile "io.dropwizard:dropwizard-core:${dropwizardVersion}"
-    compile "io.dropwizard:dropwizard-assets:${dropwizardVersion}"
-    compile "io.dropwizard:dropwizard-views:${dropwizardVersion}"
-    compile "io.dropwizard:dropwizard-views-mustache:${dropwizardVersion}"
+    compile "io.dropwizard:dropwizard-core"
+    compile "io.dropwizard:dropwizard-assets"
+    compile "io.dropwizard:dropwizard-views"
+    compile "io.dropwizard:dropwizard-views-mustache"
 
     // Community project: https://github.com/smoketurner/dropwizard-swagger
     compile "com.smoketurner:dropwizard-swagger:1.0.6-1"
@@ -43,8 +48,8 @@ dependencies {
     apt "org.immutables:value:${immutablesVersion}"
     compileOnly "org.immutables:value:${immutablesVersion}:annotations"
 
-    testCompile "io.dropwizard:dropwizard-testing:${dropwizardVersion}"
-    testCompile 'org.mockito:mockito-core:2.7.17'
+    testCompile "io.dropwizard:dropwizard-testing"
+    testCompile "org.mockito:mockito-core"
 }
 
 // Configure the run task to start the Dropwizard application
