@@ -43,8 +43,8 @@ public class KittenIntegrationTest {
     @Test
     public void testCreateAndGetRoundTrip() throws IOException {
         final Kitten kitten = ImmutableKitten.builder()
-                .id(1)
                 .name("Grumpy")
+                .age(4)
                 .type(Kitten.KittenType.GRUMPY)
                 .imagePath("images/grumpy.jpg")
                 .build();

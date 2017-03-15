@@ -3,10 +3,10 @@ package com.example.demo.model;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Value.Immutable
@@ -17,11 +17,11 @@ public interface Kitten {
         CUTE, FLUFFY, GRUMPY
     }
 
-    @Min(value = 0, message = "ID must be positive")
-    int getId();
-
     @NotEmpty
     String getName();
+
+    @Range(min = 0L, max = 40L, message = "Age must be between 0 and 40")
+    int getAge();
 
     @NotNull
     KittenType getType();

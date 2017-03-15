@@ -52,8 +52,8 @@ public class DemoApplication extends Application<DemoConfiguration> {
 
         // add one demo kitten
         final Kitten demoKitten = ImmutableKitten.builder()
-                .id(0)
                 .name("Findus")
+                .age(5)
                 .type(Kitten.KittenType.CUTE)
                 .imagePath("../../images/findus.jpg")
                 .build();

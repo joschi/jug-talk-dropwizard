@@ -16,8 +16,8 @@ import static org.junit.Assert.assertEquals;
 public class KittenResourceTest {
     private static final InMemoryStore store = new InMemoryStore();
     private static final Kitten kitten = ImmutableKitten.builder()
-            .id(23)
             .name("Findus")
+            .age(5)
             .type(Kitten.KittenType.CUTE)
             .build();
 

@@ -33,26 +33,26 @@
 
 * Show HTTP 404 from `Optional<Kitten>`:
 
-  curl -X GET --header 'Accept: application/json' 'http://127.0.0.1:8080/kittens/Carlo'
+  curl -i -X GET --header 'Accept: application/json' 'http://127.0.0.1:8080/kittens/Carlo'
 
 * Create new Kittens:
 
   curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \
-     "id": 1, \
      "name": "Tom", \
+     "age": 5, \
      "type": "CUTE" \
    }' 'http://127.0.0.1:8080/kittens'
 
 
   curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \
-      "id": 2, \
       "name": "Garfield", \
+      "age": 15, \
       "type": "FLUFFY" \
    }' 'http://127.0.0.1:8080/kittens'
 
   curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \
-      "id": 3, \
       "name": "Grumpy", \
+      "age": 4, \
       "type": "GRUMPY" \
    }' 'http://127.0.0.1:8080/kittens'
 
