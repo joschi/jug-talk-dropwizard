@@ -18,3 +18,15 @@ serve:
 	"$(shell which xdg-open || which open || which x-www-browser)" \
 		http://localhost:8000/$(MOST_RECENT)
 	python2 -m SimpleHTTPServer 8000
+
+build-demo:
+	demo/gradlew -b demo/build.gradle assemble shadowJar
+
+check-demo: build-demo
+	demo/gradlew -b demo/build.gradle check
+
+run-demo: build-demo
+	demo/gradlew -b demo/build.gradle run
+
+clean-demo:
+	demo/gradlew -b demo/build.gradle clean
