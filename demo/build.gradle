@@ -26,7 +26,7 @@ repositories {
 }
 
 ext {
-    dropwizardVersion = '1.0.5'
+    dropwizardVersion = '1.1.0-rc3'
 }
 
 dependencies {
@@ -36,12 +36,13 @@ dependencies {
     compile "io.dropwizard:dropwizard-views-mustache:${dropwizardVersion}"
 
     // Community project: https://github.com/smoketurner/dropwizard-swagger
-    compile "com.smoketurner:dropwizard-swagger:1.0.5-2"
+    compile "com.smoketurner:dropwizard-swagger:1.0.6-1"
 
     // Immutables: https://immutables.github.io/
     processor 'org.immutables:value:2.4.0'
 
     testCompile "io.dropwizard:dropwizard-testing:${dropwizardVersion}"
+    testCompile 'org.mockito:mockito-core:2.7.17'
 }
 
 // Configure the run task to start the Dropwizard application
