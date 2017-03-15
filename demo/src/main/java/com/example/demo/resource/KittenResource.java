@@ -20,6 +20,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -50,21 +51,25 @@ public class KittenResource {
     @ApiOperation("Add cute kitten")
     public Response addKitten(@Valid final Kitten kitten,
                               @Context final UriInfo uriInfo) throws URISyntaxException {
+        store.put(kittenWithImage(kitten, uriInfo.getBaseUriBuilder()));
+
+        return Response.created(new URI("/" + kitten.getName())).build();
+    }
+
+    /*
+     * Ensure that the given Kitten has a valid image.
+     */
+    private Kitten kittenWithImage(Kitten kitten, UriBuilder uriBuilder) {
         if (kitten.getImagePath() == null) {
-            final String imgPath = uriInfo.getBaseUriBuilder()
+            final String imgPath = uriBuilder
                     .path("images")
                     .path(kitten.getName().toLowerCase(Locale.ENGLISH) + ".jpg")
                     .build()
                     .toString();
-            final Kitten kittenWithImagePath = ImmutableKitten.copyOf(kitten)
-                    .withImagePath(imgPath);
-
-            store.put(kittenWithImagePath);
+            return ImmutableKitten.copyOf(kitten).withImagePath(imgPath);
         } else {
-            store.put(kitten);
+            return kitten;
         }
-
-        return Response.created(new URI("/" + kitten.getName())).build();
     }
 
     @GET
@@ -72,9 +77,8 @@ public class KittenResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_HTML})
     @ApiOperation("Get kitten")
     public Optional<Kitten> getKitten(@ApiParam("Name of the Kitten to retrieve")
-                                    @PathParam("name") String name) {
-        final Optional<Kitten> kitten = store.get(name);
-        return kitten;
+                                      @PathParam("name") String name) {
+        return store.get(name);
     }
 
     @GET
@@ -84,9 +88,7 @@ public class KittenResource {
     public KittenView getKittenView(@ApiParam("Name of the Kitten to retrieve")
                                     @PathParam("name") String name) {
         final Kitten kitten = store.get(name)
-                .orElseThrow(
-                        () -> new NotFoundException("Kitten \"" + name + "\" not found")
-                );
+                .orElseThrow(() -> new NotFoundException("Kitten \"" + name + "\" not found"));
 
         return new KittenView(kitten);
     }
